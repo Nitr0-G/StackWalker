@@ -42,7 +42,7 @@
 #pragma once
 
 #include <windows.h>
-
+#include <DbgHelp.h>
 // special defines for VC5/6 (if no actual PSDK is installed):
 #if _MSC_VER < 1300
 typedef unsigned __int64 DWORD64, *PDWORD64;
@@ -155,6 +155,7 @@ protected:
   typedef struct CallstackEntry
   {
     DWORD64 offset; // if 0, we have no valid entry
+    STACKFRAME64 stack_frame;
     CHAR    name[STACKWALK_MAX_NAMELEN];
     CHAR    undName[STACKWALK_MAX_NAMELEN];
     CHAR    undFullName[STACKWALK_MAX_NAMELEN];

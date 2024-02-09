@@ -1231,6 +1231,7 @@ BOOL StackWalker::ShowCallstack(HANDLE                    hThread,
     }
 
     csEntry.offset = s.AddrPC.Offset;
+    csEntry.stack_frame = s;
     csEntry.name[0] = 0;
     csEntry.undName[0] = 0;
     csEntry.undFullName[0] = 0;
